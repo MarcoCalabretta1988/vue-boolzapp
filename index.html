@@ -24,7 +24,31 @@
     <script defer src="js/script.js"></script>
 </head>
 <body>
+ <main>
+     <div class="container">
 
+        <!-- Board -->
+        <div class="container my-5" id="board" >
+            <div class="row h-100">
 
+                    <!-- Left side User navbar section -->
+                <section class="col px-0 border-end border-primary" id="user-navbar">
+                    <header id="user-menu-header" class="menu-bar"></header>
+                    <div id="active-notice"></div>
+                    <div id="contact-chat-prew" class="overflow-auto"></div>
+                </section>
+
+                   <!-- Right side Chat section-->
+                <section class="col-7 bg-danger px-0" id="chat">
+                   <header id="chat-header" class="menu-bar"></header>
+                   <div id="chat-board" class="overflow-auto"></div>
+                   <footer id="chat-footer" class="menu-bar"></footer>
+                </section>
+
+            </div>  
+         </div>
+        
+     </div>
+ </main>   
 </body>
 </html>
