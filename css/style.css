@@ -1,0 +1,22 @@
+/* CSS RESET */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* UTILITIES */
+
+.container{ 
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* GENERIC */
+
+body{
+    font-family: sans-serif;
+    background-image: linear-gradient(#009688, #D8DBD5,#D8DBD5);
+    height: 100vh;
+}
