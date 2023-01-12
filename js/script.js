@@ -8,13 +8,13 @@ const app = Vue.createApp({
     data(){
         return {
             user: {
-                name: 'Nome Utente',
+                name: 'Marco Calabretta',
                 avatar: '_io'
               },
 
             contacts: [
                  {
-                   name: 'Michele',
+                   name: 'Michele Lorem',
                    avatar: '_1',
                    visible: true,
                    messages: [
@@ -36,7 +36,7 @@ const app = Vue.createApp({
                    ],
                  },
                  {
-                   name: 'Fabio',
+                   name: 'Fabio Ipsum',
                    avatar: '_2',
                    visible: true,
                    messages: [{
@@ -57,7 +57,7 @@ const app = Vue.createApp({
                    ],
                  },
                  {
-                   name: 'Samuele',
+                   name: 'Samuele Volano',
                    avatar: '_3',
                    visible: true,
                    messages: [{
@@ -78,8 +78,8 @@ const app = Vue.createApp({
                    ],
                  },
                    {               
-                   name: 'Luisa',
-                   avatar: '_4',
+                   name: 'Luisa Amet',
+                   avatar: '_6',
                    visible: true,
                    messages: [{
                      date: '10/01/2020 15:30:55',
@@ -94,13 +94,41 @@ const app = Vue.createApp({
                    ],
                  },
                       ],
-            selectedIndex: 0,         
+            selectedIndex: 0,
+            newMessage: '',
+            searchContact : '',  
+            }
+        },
+        computed:{
+            filteredContact(){
+               return this.contacts.filter( contact => contact.name.toLowerCase().includes(this.searchContact.toLowerCase()));
             }
         },
     methods:{
          changeCurrentIndex(index){
-            console.log('culocane')
             this.selectedIndex = index;
+         },
+         addNewMessage(){
+            if(this.newMessage){
+            const message ={
+                date: new Date().toLocaleString(),
+                text: this.newMessage,
+                status: 'sent'
+            }
+            this.contacts[this.selectedIndex].messages.push(message);
+            this.interlocutorResponse();
+            this.newMessage = '';
+           }
+         },
+         interlocutorResponse(){
+            setTimeout (()=>{
+                const message ={
+                    date: new Date().toLocaleString(),
+                    text: 'ok',
+                    status: 'received'
+                }
+                this.contacts[this.selectedIndex].messages.push(message);
+            },2000)
          }
         }
 

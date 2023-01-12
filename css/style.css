@@ -109,8 +109,16 @@ i{
     display: flex;
     align-content: center;
     padding: 15px;
+    position: relative;
 }
 
+.send-date{
+    color: grey;
+    font-size: 10px;
+    position: absolute;
+    bottom:0;
+    left:175px;
+}
 .sent{
     background-color: var(--light-green) ;
     align-self: flex-end;

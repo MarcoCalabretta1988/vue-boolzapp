@@ -55,11 +55,11 @@
                     </div>
                     <!-- SEARCH BAR -->
                     <div id="search-chat" class="p-2">
-                        <input type="text" class="form-control p-2" placeholder=" &#128269; Cerca o inizia una nuova chat">
+                        <input type="text" class="form-control p-2" placeholder=" &#128269; Cerca o inizia una nuova chat" v-model.trim="searchContact">
                     </div>
                     <!-- CHAT PREW -->
                     <div id="contact-chat-prew" class="overflow-auto">
-                        <div v-for="(contact,i) in contacts" class="my-3 d-flex" :class="{'selected': selectedIndex === i }" @click="changeCurrentIndex(i)">
+                        <div v-for="(contact,i) in filteredContact" class="my-3 d-flex" :class="{'selected': selectedIndex === i }" @click="changeCurrentIndex(i)">
                             <img :src=`img/avatar${contact.avatar}.jpg` alt="avatar_1" class="avatar-img">
                             <span>{{ contact.name}}</span>
                         </div>
@@ -82,14 +82,14 @@
                    </header>
                    <!-- CHAT BOARD -->
                    <div id="chat-board" class="overflow-auto d-flex flex-column justyfy-content-beetwen">
-                    <div v-for="(message,i) in contacts[selectedIndex].messages" class="message-box" :class="message.status">{{ message.text}}</div>
+                    <div v-for="(message,i) in contacts[selectedIndex].messages" class="message-box" :class="message.status">{{ message.text}}<span class="send-date">{{ message.date}}</span></span></div>
                    </div>
                    <!-- CHAT FOOTER -->
                    <footer id="chat-footer" class="footer-bar">
                     <i class="fa-regular fa-face-smile"></i>
                     <div class="input-group px-3">
-                        <input type="text" class="form-control" placeholder="Scrivi un messaggio">
-                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Invia</button>
+                        <input type="text" class="form-control" placeholder="Scrivi un messaggio" v-model.trim="newMessage" @keyup.enter="addNewMessage">
+                        <button class="btn btn-outline-success" type="button" @click="addNewMessage"><i class="fa-solid fa-paper-plane"></i></button>
                     </div>
                     <i class="fa-solid fa-microphone"></i>
                    </footer>
