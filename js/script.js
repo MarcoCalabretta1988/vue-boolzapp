@@ -97,12 +97,14 @@ const app = Vue.createApp({
             selectedIndex: 0,
             newMessage: '',
             searchContact : '',  
+            lastIndex : 0,
             }
         },
         computed:{
             filteredContact(){
                return this.contacts.filter( contact => contact.name.toLowerCase().includes(this.searchContact.toLowerCase()));
-            }
+            },
+            
         },
     methods:{
          changeCurrentIndex(index){
@@ -129,6 +131,9 @@ const app = Vue.createApp({
                 }
                 this.contacts[this.selectedIndex].messages.push(message);
             },2000)
+         },
+         getLastIndex(index){
+            return this.contacts[index].messages.length -1;
          }
         }
 

@@ -61,7 +61,13 @@
                     <div id="contact-chat-prew" class="overflow-auto">
                         <div v-for="(contact,i) in filteredContact" class="my-3 d-flex" :class="{'selected': selectedIndex === i }" @click="changeCurrentIndex(i)">
                             <img :src=`img/avatar${contact.avatar}.jpg` alt="avatar_1" class="avatar-img">
-                            <span>{{ contact.name}}</span>
+                            <div class="w-100">
+                                <div class="d-flex justify-content-between px-2">
+                                    <span class="fw-bolder">{{ contact.name}} </span>
+                                    <span class="text-secondary">{{ contact.messages[getLastIndex(i)].date}}</span>
+                                </div>
+                                <div class="px-2 text-secondary">{{ contact.messages[getLastIndex(i)].text}}</div>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -72,7 +78,7 @@
                    <header id="chat-header" class="header-menu-bar">
                       <div class="h-100 d-flex justyfy-content-beetwe align-items-center">
                          <img :src=`img/avatar${contacts[selectedIndex].avatar}.jpg` :alt="contacts[selectedIndex].name" class="avatar-img">
-                         <span>{{ contacts[selectedIndex].name}}</span>
+                         <span class="fw-bolder">{{ contacts[selectedIndex].name}}</span>
                       </div>
                       <div>
                         <i class="fa-solid fa-magnifying-glass"></i>
