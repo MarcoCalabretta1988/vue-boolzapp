@@ -11,6 +11,7 @@
 :root{
 
     --green:#009688;
+    --light-green:#D5F9BA;
     --grey:#D8DBD5;
     --light-blue:#8EDAFC;
     --light-grey:#EAEAEA;
@@ -88,11 +89,35 @@ i{
     height: 480px;
 }
 
+.selected{
+    background-color: var(--light-grey);
+}
+
+
+
 /* CHAT SECTION */
 
 #chat-board{
     background-image: url(../img/mine.jpg);
     height: 558px;
+}
+
+.message-box{
+    width: 280px;
+    margin: 20px;
+    border-radius: 10px;
+    display: flex;
+    align-content: center;
+    padding: 15px;
+}
+
+.sent{
+    background-color: var(--light-green) ;
+    align-self: flex-end;
+}
+
+.received{
+    background-color: white;
 }
 
 .footer-bar{
