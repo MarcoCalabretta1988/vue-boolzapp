@@ -28,21 +28,85 @@
      <div class="container">
 
         <!-- Board -->
-        <div class="container my-5" id="board" >
+        <div class="container" id="board" >
             <div class="row h-100">
 
                     <!-- Left side User navbar section -->
                 <section class="col px-0 border-end border-primary" id="user-navbar">
-                    <header id="user-menu-header" class="menu-bar"></header>
-                    <div id="active-notice"></div>
-                    <div id="contact-chat-prew" class="overflow-auto"></div>
+                    <!-- USER HEADER -->
+                    <header id="user-menu-header" class="header-menu-bar">
+                        <div class="h-100 d-flex justyfy-content-beetwe align-items-center">
+                            <img src="img/avatar_io.jpg" alt="avatar_1" class="avatar-img">
+                            <span>Nome cognome</span>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-arrow-rotate-left"></i>
+                            <i class="fa-solid fa-message"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </div>
+                    </header>
+                    <!-- ACTIVE NOTICE -->
+                    <div id="active-notice" class="d-flex align-items-center p-4">
+                        <i class="fa-solid fa-bell-slash"></i>
+                        <div class="m-2">
+                            <p class="m-0 fw-bolder">Ricevi notifiche di nuovi messaggi</p>
+                            <span class="text-decoration-underline text-secondary">Attiva notifiche desktop</span>
+                        </div>
+                    </div>
+                    <!-- SEARCH BAR -->
+                    <div id="search-chat" class="p-2">
+                        <input type="text" class="form-control p-2" placeholder=" &#128269; Cerca o inizia una nuova chat">
+                    </div>
+                    <!-- CHAT PREW -->
+                    <div id="contact-chat-prew" class="overflow-auto p-3">
+                        <div class="my-3 d-flex">
+                            <img src="img/avatar_1.jpg" alt="avatar_1" class="avatar-img">
+                            <span>Michele</span>
+                        </div>
+                        <div class="my-3 d-flex">
+                            <img src="img/avatar_2.jpg" alt="avatar_1" class="avatar-img">
+                            <span>Sergio</span>
+                        </div>
+                        <div class="my-3 d-flex">
+                            <img src="img/avatar_3.jpg" alt="avatar_1" class="avatar-img">
+                            <span>Paolo</span>
+                        </div>
+                        <div class="my-3 d-flex">
+                            <img src="img/avatar_4.jpg" alt="avatar_1" class="avatar-img">
+                            <span>Gian Gianni</span>
+                        </div>
+                        <div class="my-3 d-flex">
+                            <img src="img/avatar_5.jpg" alt="avatar_1" class="avatar-img">
+                            <span>Roberto</span>
+                        </div>
+                    </div>
                 </section>
 
                    <!-- Right side Chat section-->
-                <section class="col-7 bg-danger px-0" id="chat">
-                   <header id="chat-header" class="menu-bar"></header>
-                   <div id="chat-board" class="overflow-auto"></div>
-                   <footer id="chat-footer" class="menu-bar"></footer>
+                <section class="col-7 px-0" id="chat">
+                    <!-- CHAT HEADER -->
+                   <header id="chat-header" class="header-menu-bar">
+                      <div class="h-100 d-flex justyfy-content-beetwe align-items-center">
+                         <img src="img/avatar_2.jpg" alt="avatar_1" class="avatar-img">
+                         <span>Nome cognome</span>
+                      </div>
+                      <div>
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fa-solid fa-paperclip"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                     </div>
+                   </header>
+                   <!-- CHAT BOARD -->
+                   <div id="chat-board" class="overflow-auto">dxhdz</div>
+                   <!-- CHAT FOOTER -->
+                   <footer id="chat-footer" class="footer-bar">
+                    <i class="fa-regular fa-face-smile"></i>
+                    <div class="input-group px-3">
+                        <input type="text" class="form-control" placeholder="Scrivi un messaggio">
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Invia</button>
+                    </div>
+                    <i class="fa-solid fa-microphone"></i>
+                   </footer>
                 </section>
 
             </div>  

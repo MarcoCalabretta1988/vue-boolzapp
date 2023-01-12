@@ -30,6 +30,21 @@ body{
     font-family: sans-serif;
     background-image: linear-gradient(var(--green) 15%, var(--grey) 15%);
     height: 100vh;
+    padding: 50px;
+}
+
+.avatar-img{
+    width: 50px;
+    height: auto;
+    border-radius: 50%;
+    margin: 0 10px;
+}
+
+i{
+    color:gray;
+    font-size: 25px;
+    padding: 0 5px;
+    cursor: pointer;
 }
 
 /* MAIN */
@@ -37,12 +52,17 @@ body{
 #board{
     height:700px;
     background-color: white;
+    border: 1px solid black;
 }
 
-.menu-bar{
+.header-menu-bar{
    height: 70px;
    background-color: var(--light-grey);
    position: sticky;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 0 10px;
 }
 
 /*  USER NAVBAR SECTION */
@@ -53,13 +73,33 @@ body{
    background-color: var(--light-blue);
 }
 
+#search-chat{
+  background-color: var(--light-grey);
+}
+
+#active-notice i {
+    color: var(--light-blue);
+    padding: 12px 10px;
+    border-radius: 50%;
+    background-color: white;
+}
+
 #contact-chat-prew{
-    height: 550px;
+    height: 480px;
 }
 
 /* CHAT SECTION */
 
 #chat-board{
     background-image: url(../img/mine.jpg);
-    height: 560px;
+    height: 558px;
 }
+
+.footer-bar{
+    height: 70px;
+    background-color: var(--light-grey);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+ }
