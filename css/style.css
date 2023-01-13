@@ -110,6 +110,20 @@ i{
     align-content: center;
     padding: 15px;
     position: relative;
+    left:0;
+    top: 0;
+}
+
+.delete-menu{
+   background-color: white;
+   height: 25px;
+   width: 100px;
+   position: absolute;
+   left: 165px;
+   top : 40px;
+   text-align: center;
+   border: 1px solid black;
+   cursor: pointer;
 }
 
 .send-date{
