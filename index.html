@@ -87,9 +87,9 @@
                      </div>
                    </header>
                    <!-- CHAT BOARD -->
-                   <div id="chat-board" class="overflow-auto d-flex flex-column justyfy-content-beetwen">
-                    <div v-for="(message,i) in contacts[selectedIndex].messages" class="message-box" :class="message.status" @click="showDeleteMenu(i)">{{ message.text}}<span class="send-date">{{ message.date}}</span></span>
-                        <div class="delete-menu" :class="{'d-none' : !message.isBoxClick }" @click="deleteMessage(i)">Cancella</div>
+                   <div  ref="chatboard" id="chat-board" class="overflow-auto d-flex flex-column justyfy-content-beetwen">
+                    <div v-for="(message,i) in contacts[selectedIndex].messages" class="message-box" :class="message.status" @click="showDeleteMenu">{{ message.text}}<span class="send-date">{{ message.date}}</span></span>
+                        <div class="delete-menu" :class="{'d-none' : !isBoxClick }" @click="deleteMessage(i)">Cancella</div>
                     </div>
                    </div>
                    <!-- CHAT FOOTER -->

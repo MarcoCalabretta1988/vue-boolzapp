@@ -14,7 +14,7 @@ const app = Vue.createApp({
 
             contacts: [
                  {
-                   id: 1,
+                   
                    name: 'Michele Lorem',
                    avatar: '_1',
                    visible: true,
@@ -23,24 +23,24 @@ const app = Vue.createApp({
                      date: '10/01/2020 15:30:55',
                      text: 'Hai portato a spasso il cane?',
                      status: 'sent',
-                     isBoxClick: false,
+                    
                    },
                    {
                      date: '10/01/2020 15:50:00',
                      text: 'Ricordati di dargli da mangiare',
                      status: 'sent',
-                     isBoxClick: false,
+                     
                    },
                    {
                      date: '10/01/2020 16:15:22',
                      text: 'Tutto fatto!',
                      status: 'received',
-                     isBoxClick: false,
+                     
                    }
                    ],
                  },
                  {
-                   id: 2,
+                 
                    name: 'Fabio Ipsum',
                    avatar: '_2',
                    visible: true,
@@ -48,24 +48,24 @@ const app = Vue.createApp({
                      date: '20/03/2020 16:30:00',
                      text: 'Ciao come stai?',
                      status: 'sent',
-                     isBoxClick: false,
+                    
                    },
                    {
                      date: '20/03/2020 16:30:55',
                      text: 'Bene grazie! Stasera ci vediamo?',
                      status: 'received',
-                     isBoxClick: false,
+                    
                    },
                    {
                      date: '20/03/2020 16:35:00',
                      text: 'Mi piacerebbe ma devo andare a fare la spesa.',
                      status: 'sent',
-                     isBoxClick: false,
+                  
                    }
                    ],
                  },
                  {
-                   id: 3,
+                 
                    name: 'Samuele Volano',
                    avatar: '_3',
                    visible: true,
@@ -73,24 +73,23 @@ const app = Vue.createApp({
                      date: '28/03/2020 10:10:40',
                      text: 'La Marianna va in campagna',
                      status: 'received',
-                     isBoxClick: false,
+                    
                    },
                    {
                      date: '28/03/2020 10:20:10',
                      text: 'Sicuro di non aver sbagliato chat?',
                      status: 'sent',
-                     isBoxClick: false,
+                    
                    },
                    {
                      date: '28/03/2020 16:15:22',
                      text: 'Ah scusa!',
                      status: 'received',
-                     isBoxClick: false,
                    }
                    ],
                  },
                    {
-                    id: 4,               
+                              
                    name: 'Luisa Amet',
                    avatar: '_6',
                    visible: true,
@@ -98,13 +97,13 @@ const app = Vue.createApp({
                      date: '10/01/2020 15:30:55',
                      text: 'Lo sai che ha aperto una nuova pizzeria?',
                      status: 'sent',
-                     isBoxClick: false,
+                    
                    },
                    {
                      date: '10/01/2020 15:50:00',
                      text: 'Si, ma preferirei andare al cinema',
                      status: 'received',
-                     isBoxClick: false,
+                    
                    }
                    ],
                  },
@@ -113,6 +112,7 @@ const app = Vue.createApp({
             newMessage: '',
             searchContact : '',  
             lastIndex : 0,
+            isBoxClick: false,
             
             }
         },
@@ -135,9 +135,11 @@ const app = Vue.createApp({
             }
             this.contacts[this.selectedIndex].messages.push(message);
             this.interlocutorResponse();
+            this.scrollDownChat()
             this.newMessage = '';
            }
          },
+
          interlocutorResponse(){
             setTimeout (()=>{
                 const message ={
@@ -146,20 +148,27 @@ const app = Vue.createApp({
                     status: 'received'
                 }
                 this.contacts[this.selectedIndex].messages.push(message);
+                this.scrollDownChat()
             },2000)
          },
+
          getLastIndex(index){
             return this.contacts[index].messages.length -1;
          },
-        showDeleteMenu(index){
-          this.contacts[this.selectedIndex].messages[index].isBoxClick= !this.contacts[this.selectedIndex].messages[index].isBoxClick;
 
+        showDeleteMenu(){
+          this.isBoxClick = !this.isBoxClick;
         },
+
         deleteMessage(index){
-          if(this.contacts[this.selectedIndex].messages){
            this.contacts[this.selectedIndex].messages.splice(index,1);
            this.showDeleteMenu(index);
-          }
+        },
+
+        scrollDownChat(){
+           this.$nextTick(() => {
+            this.$refs.chatboard.scrollTop = this.$refs.chatboard.scrollHeight
+           });
         }
         }
 
