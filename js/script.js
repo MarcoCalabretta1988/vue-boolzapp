@@ -116,12 +116,7 @@ const app = Vue.createApp({
             
             }
         },
-        computed:{
-            filteredContact(){
-               return this.contacts.filter( contact =>contact.name.toLowerCase().includes(this.searchContact.toLowerCase()));
-            },
-            
-        },
+        
     methods:{
          changeCurrentIndex(index){
             this.selectedIndex = index;
@@ -169,7 +164,14 @@ const app = Vue.createApp({
            this.$nextTick(() => {
             this.$refs.chatboard.scrollTop = this.$refs.chatboard.scrollHeight
            });
+        },
+        
+        filterContact(){
+          this.contacts.forEach( contact =>{
+            contact.visible = contact.name.toLowerCase().includes(this.searchContact.toLowerCase());
+          })
         }
+
         }
 
     })
