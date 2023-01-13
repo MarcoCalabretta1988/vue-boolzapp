@@ -59,14 +59,14 @@
                     </div>
                     <!-- CHAT PREW -->
                     <div id="contact-chat-prew" class="overflow-auto">
-                        <div v-for="(contact,i) in filteredContact" class="my-3 d-flex" :class="{'selected': selectedIndex === i }" @click="changeCurrentIndex(i)">
+                        <div v-for="(contact,i) in filteredContact" class="my-3 d-flex align-items-center " :class="{'selected': selectedIndex === i }" @click="changeCurrentIndex(i)">
                             <img :src=`img/avatar${contact.avatar}.jpg` alt="avatar_1" class="avatar-img">
                             <div class="w-100">
-                                <div class="d-flex justify-content-between px-2">
-                                    <span class="fw-bolder">{{ contact.name}} </span>
-                                    <span class="text-secondary">Ultimo messaggio:{{ contact.messages[getLastIndex(i)].date}}</span>
+                                <span class="fw-bolder">{{ contact.name}} </span>
+                                <div v-if="contact.messages[getLastIndex(i)]">
+                                    <div class=" text-secondary fw-ligh h-30">{{ contact.messages[getLastIndex(i)].text}}</div>
+                                    <span class="text-secondary fw-ligh">Ultimo messaggio: {{ contact.messages[getLastIndex(i)].date}}</span>
                                 </div>
-                                <div class="px-2 text-secondary overflow-hidden">{{ contact.messages[getLastIndex(i)].text}}</div>
                             </div>
                         </div>
                     </div>
@@ -88,9 +88,15 @@
                    </header>
                    <!-- CHAT BOARD -->
                    <div  ref="chatboard" id="chat-board" class="overflow-auto d-flex flex-column justyfy-content-beetwen">
-                    <div v-for="(message,i) in contacts[selectedIndex].messages" class="message-box" :class="message.status" @click="showDeleteMenu">{{ message.text}}<span class="send-date">{{ message.date}}</span></span>
-                        <div class="delete-menu" :class="{'d-none' : !isBoxClick }" @click="deleteMessage(i)">Cancella</div>
-                    </div>
+                    <div v-for="(message,i) in filteredContact[selectedIndex].messages" class="message-box" :class="message.status" @click="showDeleteMenu">
+                      <div  @mouseleave = "isBoxClick = false">
+                        <div id="option">
+                            <div v-if="isBoxClick" class="delete-menu" @click="deleteMessage(i)">Cancella</div>
+                        </div>
+                        <span>{{ message.text}}</span> 
+                        <span class="send-date">{{ message.date}}</span>   
+                        </div>                     
+                      </div>
                    </div>
                    <!-- CHAT FOOTER -->
                    <footer id="chat-footer" class="footer-bar">

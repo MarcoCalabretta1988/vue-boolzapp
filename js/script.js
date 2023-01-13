@@ -95,7 +95,7 @@ const app = Vue.createApp({
                    visible: true,
                    messages: [{
                      date: '10/01/2020 15:30:55',
-                     text: 'Lo sai che ha aperto una nuova pizzeria?',
+                     text: 'Lo sai che ha aperto una nuova pizzeria? lorem uyd nfuiahviuf niufhfaiuafiuhvfaiuhnvn oi',
                      status: 'sent',
                     
                    },
@@ -118,7 +118,7 @@ const app = Vue.createApp({
         },
         computed:{
             filteredContact(){
-               return this.contacts.filter( contact => contact.name.toLowerCase().includes(this.searchContact.toLowerCase()));
+               return this.contacts.filter( contact =>contact.name.toLowerCase().includes(this.searchContact.toLowerCase()));
             },
             
         },
