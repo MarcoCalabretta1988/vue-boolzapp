@@ -65,8 +65,8 @@
                               <div class="w-100">
                                   <span class="fw-bolder">{{ contact.name}} </span>
                                   <div v-if="contact.messages[getLastIndex(i)]">
-                                      <div class=" text-secondary fw-ligh h-30">{{ contact.messages[getLastIndex(i)].text}}</div>
-                                      <span class="text-secondary fw-ligh">Ultimo messaggio: {{ contact.messages[getLastIndex(i)].date}}</span>
+                                      <div class=" text-secondary fw-ligh h-30" v-text="getPrewMessage(i)"></div>
+                                      <span class="text-secondary fw-ligh" >Ultimo messaggio: {{ contact.messages[getLastIndex(i)].date}}</span>
                                   </div>
                                </div>
                             </div>

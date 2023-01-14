@@ -113,6 +113,7 @@ const app = Vue.createApp({
             searchContact : '',  
             lastIndex : 0,
             isBoxClick: false,
+            isWrite: false,
             
             }
         },
@@ -120,6 +121,7 @@ const app = Vue.createApp({
     methods:{
          changeCurrentIndex(index){
             this.selectedIndex = index;
+            this.scrollDownChat()
          },
          addNewMessage(){
             if(this.newMessage){
@@ -132,10 +134,12 @@ const app = Vue.createApp({
             this.interlocutorResponse();
             this.scrollDownChat()
             this.newMessage = '';
+            
            }
          },
 
          interlocutorResponse(){
+           this.isWrite = !this.iswrite;
             setTimeout (()=>{
                 const message ={
                     date: new Date().toLocaleString(),
@@ -144,7 +148,8 @@ const app = Vue.createApp({
                 }
                 this.contacts[this.selectedIndex].messages.push(message);
                 this.scrollDownChat()
-            },2000)
+                this.isWrite = !this.isWrite;
+              },2000)
          },
 
          getLastIndex(index){
@@ -170,6 +175,17 @@ const app = Vue.createApp({
           this.contacts.forEach( contact =>{
             contact.visible = contact.name.toLowerCase().includes(this.searchContact.toLowerCase());
           })
+        },
+
+        getPrewMessage(index){
+          let message = '';
+          if(this.isWrite && index === this.selectedIndex){
+        
+            return message = 'Sta scrivendo..';
+          }
+          else{
+            return message = this.contacts[index].messages[this.getLastIndex(index)].text;
+          }
         }
 
         }
